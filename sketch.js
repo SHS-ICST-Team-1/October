@@ -15,9 +15,9 @@ function draw() {
     fill(255, 0, 0, 235-w);
     stroke(255, 0, 0, 255-w);
     strokeWeight(7);
-    if (out && w<255){
+    if (out && w<300){
         circle(mousePos.x, mousePos.y, w);
-        w+=3;
+        w+=5;
     }
     else{
         w=0;
