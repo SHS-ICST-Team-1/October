@@ -1,26 +1,26 @@
-let mousePos = { x: undefined, y: undefined };
-window.addEventListener('mousemove', (event) => {
-    mousePos = { x: event.clientX, y: event.clientY };
-});
-let out=false;
-let w=0;
-window.addEventListener('click',()=>{
-    out=true;
-})
+let g_laptop=[20,20,
+    20,40,
+    40,40,
+    40,20];
+let g_color=[140,140,140];
+
+
+
+let rect= (x,y,w,h)=>{
+    console.log("" + x + +y +',' +x +(y+h) +',' + (x+w) + (y+h) +',' + (x+w) +y );
+}
 function setup() {
     createCanvas(1525, 708);
 }
 function draw() {
     background(34);
-    fill(255, 0, 0, 235-w);
-    stroke(255, 0, 0, 255-w);
-    strokeWeight(7);
-    if (out && w<300){
-        circle(mousePos.x, mousePos.y, w);
-        w+=5;
+    polygon(g_laptop,g_color);
+}
+const polygon= (arr,rgb) =>{
+    fill(rgb[0],rgb[1],rgb[2]);
+    beginShape();
+    for (let i=0;i<arr.length;i+=2){
+        vertex(arr[i],arr[i+1]);
     }
-    else{
-        w=0;
-        out=false;
-    }
+    endShape(CLOSE);
 }
