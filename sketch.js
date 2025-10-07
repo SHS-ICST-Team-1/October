@@ -6,8 +6,9 @@ let g_color=[140,140,140];
 
 
 
-let rect= (x,y,w,h)=>{
+let rect1= (x,y,w,h)=>{
     console.log("" + x + +y +',' +x +(y+h) +',' + (x+w) + (y+h) +',' + (x+w) +y );
+    rect(x,y,w,h);
 }
 function setup() {
     createCanvas(1525, 708);
