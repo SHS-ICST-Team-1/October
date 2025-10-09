@@ -30,7 +30,7 @@ function draw() {
     rect1(x+45, y, 40, 40, "0,120,212");
     g_laptopBase = [580, 500, 940, 500, 1020, 600, 500, 600];
     polygon([1020, 600, 990,607, 530, 607, 500, 600],[45,45,45])
-    polygon([580, 500, 940, 500, 1020, 600, 500, 600])
+    
     polygon(g_laptopBase, g_color);
 }
 const polygon= (arr,rgb) =>{
