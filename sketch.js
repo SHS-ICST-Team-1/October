@@ -77,6 +77,22 @@ function draw() {
 
     beginShape();
     // 0,-40 ref point
+    // leaf
+    vertex(0,-30);
+    quadraticVertex(10,-50,25,-45);
+    quadraticVertex(25,-30,0,-30);
+    endShape(CLOSE);
+
+    beginShape();
+    vertex(0,-10);
+    bezierVertex(20,-25, 50,-10, 60,0);
+    bezierVertex(37,15,50,38,60,45);//bite
+    bezierVertex(65,50,60,60,50,70);
+    bezierVertex(30,90,20,60,-5,70);
+    bezierVertex(-30,90,-50,60,-52,40);
+    bezierVertex(-60,0,-30,-30,0,-10);
+    vertex(-10,50);
+
     endShape(CLOSE);
     pop();
 }
