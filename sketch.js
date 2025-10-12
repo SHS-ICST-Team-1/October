@@ -2,6 +2,9 @@ let g_laptopBase=[];
 let g_color=[50,50,50];
 let height=500
 let num=31;
+// Position for Siddharth's laptop (adjust these to move it)
+let sidLaptopX = 75;
+let sidLaptopY = 370; // moved down from 300
 
 let rect1 = (x, y, w, h, color) => {
     console.log("" + x + "," + y + ',' + x + "," + (y + h) + ',' + (x + w) + "," + (y + h) + ',' + (x + w) + "," + y);
@@ -32,79 +35,11 @@ function draw() {
     polygon([1020, 600, 990,607, 530, 607, 500, 600],[45,45,45])
     
     polygon(g_laptopBase, g_color);
-
-
-    //siddharth laptop (best one)
-    let macx = 75;
-    let macy = 300;
-    let macw = 340;
-    let mach = 200;
-    fill(70);
-    rect(macx,macy,macw,mach); //overall
-    fill(20);
-    rect(macx+10,macy+10,macw-20,mach-20,5); //screen
-    fill(100);
-
-    beginShape(); //base start
-    fill(70)
-    stroke(0,0,0);
-    vertex(macx, macy + mach); //tpl
-    vertex(macx + macw, macy+mach);//tpr
-    vertex(macx + macw+60, macy + mach + 100);//btr
-    vertex(macx-60, macy + mach + 100);//btl
-    endShape(CLOSE); //base end
-
-    //bottom of base
-    beginShape();
-    fill(70);
-    stroke(0,0,0);
-    vertex(macx-60, macy + mach + 100);//tpl
-    vertex(macx + macw+60, macy + mach + 100);//tpr
-    vertex(macx + macw+40, macy+mach+107); //btr
-    vertex(macx-40, macy+mach+107); //btl
-    endShape(CLOSE);
-
-    //apple logo (so cool)
-    let logox = macx + macw/2;
-    let logoy = macy + mach/2 - 10;
-
-    push();//begin drawing grp
-    translate(logox,logoy);
-    scale(1);
-
-    fill(255,255,255);
-    noStroke();
-
-    beginShape();
-    // 0,-40 ref point
-    // leaf
-    vertex(0,-30);
-    quadraticVertex(10,-50,25,-45);
-    quadraticVertex(25,-30,0,-30);
-    endShape(CLOSE);
-
-    beginShape();
-    vertex(0,-10);
-    bezierVertex(20,-25, 50,-10, 60,0);
-    bezierVertex(37,15,50,38,60,45);//bite
-    bezierVertex(65,50,60,60,50,70);
-    bezierVertex(30,90,20,60,-5,70);
-    bezierVertex(-30,90,-50,60,-52,40);
-    bezierVertex(-60,0,-30,-30,0,-10);
-    vertex(-10,50);
-
-    endShape(CLOSE);
-    pop();
+  // Siddharth laptop (now positioned via variables)
+  drawSiddharthLaptop(sidLaptopX, sidLaptopY);
+    drawAppleLaptop(80,40)
 }
-const polygon= (arr,rgb) =>{
-    fill(rgb[0],rgb[1],rgb[2]);
-    beginShape();
-    for (let i=0;i<arr.length;i+=2){
-        vertex(arr[i],arr[i+1]);
-    }
-    endShape(CLOSE);
-    drawAppleLaptop(200, 150);
-}
+
 
 function polygon(arr, rgb) {
   fill(rgb[0], rgb[1], rgb[2]);
@@ -113,6 +48,70 @@ function polygon(arr, rgb) {
     vertex(arr[i], arr[i + 1]);
   }
   endShape(CLOSE);
+}
+
+function drawSiddharthLaptop(x, y) {
+  // base screen rect
+  let macx = x;
+  let macy = y;
+  let macw = 340;
+  let mach = 200;
+
+  fill(70);
+  rect(macx, macy, macw, mach); // overall
+  fill(20);
+  rect(macx + 10, macy + 10, macw - 20, mach - 20, 5); // screen
+  fill(100);
+
+  // base start
+  beginShape();
+  fill(70);
+  stroke(0, 0, 0);
+  vertex(macx, macy + mach); // tpl
+  vertex(macx + macw, macy + mach); // tpr
+  vertex(macx + macw + 60, macy + mach + 100); // btr
+  vertex(macx - 60, macy + mach + 100); // btl
+  endShape(CLOSE); // base end
+
+  // bottom of base
+  beginShape();
+  fill(70);
+  stroke(0, 0, 0);
+  vertex(macx - 60, macy + mach + 100); // tpl
+  vertex(macx + macw + 60, macy + mach + 100); // tpr
+  vertex(macx + macw + 40, macy + mach + 107); // btr
+  vertex(macx - 40, macy + mach + 107); // btl
+  endShape(CLOSE);
+
+  // apple logo
+  let logox = macx + macw / 2;
+  let logoy = macy + mach / 2 - 20;
+
+  push(); // begin drawing group
+  translate(logox, logoy);
+  scale(1);
+
+  fill(255, 255, 255);
+  noStroke();
+
+  beginShape();
+  // leaf
+  vertex(0, -30);
+  quadraticVertex(10, -50, 25, -45);
+  quadraticVertex(25, -30, 0, -30);
+  endShape(CLOSE);
+
+  beginShape();
+  vertex(0, -10);
+  bezierVertex(20, -25, 50, -10, 60, 0);
+  bezierVertex(37, 15, 50, 38, 60, 45); // bite
+  bezierVertex(65, 50, 60, 60, 50, 70);
+  bezierVertex(30, 90, 20, 60, -5, 70);
+  bezierVertex(-30, 90, -50, 60, -52, 40);
+  bezierVertex(-60, 0, -30, -30, 0, -10);
+  vertex(-10, 50);
+  endShape(CLOSE);
+  pop();
 }
 
 function drawAppleLaptop(x, y) {
