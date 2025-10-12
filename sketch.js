@@ -43,16 +43,43 @@ function draw() {
   // Siddharth laptop (now positioned via variables)
   drawSiddharthLaptop(sidLaptopX, sidLaptopY);
     drawAppleLaptop(80,40)
+    drawReubensPC()
 }
 
 
-function polygon(arr, rgb) {
+function polygon(arr, rgb) {// input format ([x1, y1, x2, y2, x3, y3,.. ], [r,g,b])
   fill(rgb[0], rgb[1], rgb[2]);
   beginShape();
   for (let i = 0; i < arr.length; i += 2) {
     vertex(arr[i], arr[i + 1]);
   }
   endShape(CLOSE);
+}
+
+function drawReubensPC(){
+  // 1525, 708
+    //rect1(100,100, 100, 100, "9,100,200"); // test rect
+
+    //rect1(1150,0, 2, 708)
+    let m = -50
+    let keybaordCol = [25, 25, 25];
+    let keyboard =[1180+m,600, 1460+m,600, 1480+m, 670, 1160+m, 670];
+    polygon(keyboard,keybaordCol);
+    let keyboardBase = [1160+m, 670, 1480+m, 670,  1450+m, 675,  1190+m, 675]
+    polygon(keyboardBase, [14,14,14]);
+    
+    let mBarCol = [127, 127, 127]
+    rect1(1160+m, 540, 320, 6, "127, 127, 127");
+    rect1(1160+m, 380, 320, 160, "6, 6, 6")
+    rect1(1165+m, 385, 310, 150, "20, 20, 20")
+    fill(2, 2, 2)
+    ellipse(1480, 620, 30, 50)
+    rect1(1240, 420, 30, 30, "0,120,212");
+    rect1(1240+35, 420 +35, 30, 30, "0,120,212");
+    rect1(1240, 420 +35, 30, 30, "0,120,212");
+    rect1(1240+35, 420,30, 30, "0,120,212");
+    
+
 }
 
 function drawSiddharthLaptop(x, y) {
