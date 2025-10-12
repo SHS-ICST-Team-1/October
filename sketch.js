@@ -22,7 +22,7 @@ function draw() {
   textAlign(CENTER);
   textSize(20);
   fill(255);
-  text("\"Teamwork Makes the Dream Work - Kaushik Karthik\"", width / 2, height - 60);
+  text("\"Teamwork Makes the Dream Work - Kaushik Karthik\"", width / 2, height - 80);
   textSize(50);
   text("SHS Team #1\nSetups", width / 2, height);
 
@@ -48,6 +48,7 @@ function draw() {
   drawSiddharthLaptop(sidLaptopX, sidLaptopY);
   drawAppleLaptop(80, 40);
   drawSilverLaptop(1150, 80);
+  drawReubensPC();
 }
 
 function polygon(arr, rgb) {
@@ -58,13 +59,36 @@ function polygon(arr, rgb) {
   }
   endShape(CLOSE);
 }
+function drawReubensPC(){
+  // 1525, 708
+    //rect1(100,100, 100, 100, "9,100,200"); // test rect
 
+    //rect1(1150,0, 2, 708)
+    let m = -50
+    let keybaordCol = [25, 25, 25];
+    let keyboard =[1180+m,600, 1460+m,600, 1480+m, 670, 1160+m, 670];
+    polygon(keyboard,keybaordCol);
+    let keyboardBase = [1160+m, 670, 1480+m, 670,  1450+m, 675,  1190+m, 675]
+    polygon(keyboardBase, [14,14,14]);
+    
+    let mBarCol = [127, 127, 127]
+    rect1(1160+m, 540, 320, 6, "127, 127, 127");
+    rect1(1160+m, 380, 320, 160, "6, 6, 6")
+    rect1(1165+m, 385, 310, 150, "20, 20, 20")
+    fill(2, 2, 2)
+    ellipse(1480, 620, 30, 50)
+    rect1(1240, 420, 30, 30, "0,120,212");
+    rect1(1240+35, 420 +35, 30, 30, "0,120,212");
+    rect1(1240, 420 +35, 30, 30, "0,120,212");
+    rect1(1240+35, 420,30, 30, "0,120,212");
+    
+
+}
 function drawSiddharthLaptop(x, y) {
   let macx = x;
   let macy = y;
   let macw = 340;
   let mach = 200;
-
   fill(70);
   rect(macx, macy, macw, mach);
   fill(20);
