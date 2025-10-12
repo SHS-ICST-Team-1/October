@@ -16,8 +16,10 @@ function setup() {
 }
 function draw() {
     background(34);
-    textSize(50);
+    textSize(20);
     fill(255, 255, 255);
+    text("\"Toghether we make a sigma team! - Kaushik Karthik\"", 550, height-60);
+    textSize(50);
     text("SHS Team #1\n      Setups", 625, height);
     if (height>150&&frameCount%2==0){
         height-=num;
