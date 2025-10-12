@@ -12,7 +12,9 @@ let rect1 = (x, y, w, h, color) => {
     rect(x, y, w, h);
 }
 function setup() {
-    createCanvas(1525, 708);
+  const cnv = createCanvas(1525, 708);
+  // Attach the canvas to the container so it appears above the H1
+  cnv.parent('p5-container');
 }
 function draw() {
     background(34);
