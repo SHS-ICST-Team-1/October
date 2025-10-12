@@ -16,25 +16,24 @@ function setup() {
 }
 function draw() {
     background(34);
-    textSize(20);
-    fill(255, 255, 255);
-    text("\"Toghether we make a sigma team! - Kaushik Karthik\"", 550, height-60);
     textSize(50);
+    fill(255, 255, 255);
     text("SHS Team #1\n      Setups", 625, height);
     if (height>150&&frameCount%2==0){
         height-=num;
         num/=1.1;
     }
-    rect1(580, 300, 360, 200, "50,50,50");
-    rect1(590, 315, 340, 170, "20,20,20");
+    // MOVED WINDOWS LAPTOP DOWN 70 PIXELS
+    rect1(580, 370, 360, 200, "50,50,50"); // CHANGED: y from 300 to 370
+    rect1(590, 385, 340, 170, "20,20,20"); // CHANGED: y from 315 to 385
 
-    let x=720,y=350;
+    let x=720,y=420; // CHANGED: y from 350 to 420
     rect1(x, y, 40, 40, "0,120,212");
     rect1(x+45, y +45, 40, 40, "0,120,212");
     rect1(x, y +45, 40, 40, "0,120,212");
     rect1(x+45, y, 40, 40, "0,120,212");
-    g_laptopBase = [580, 500, 940, 500, 1020, 600, 500, 600];
-    polygon([1020, 600, 990,607, 530, 607, 500, 600],[45,45,45])
+    g_laptopBase = [580, 570, 940, 570, 1020, 670, 500, 670]; // CHANGED: all y coordinates increased by 70
+    polygon([1020, 670, 990,677, 530, 677, 500, 670],[45,45,45]) // CHANGED: all y coordinates increased by 70
     
     polygon(g_laptopBase, g_color);
   // Siddharth laptop (now positioned via variables)
