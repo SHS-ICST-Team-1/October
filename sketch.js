@@ -40,4 +40,32 @@ const polygon= (arr,rgb) =>{
         vertex(arr[i],arr[i+1]);
     }
     endShape(CLOSE);
+    drawAppleLaptop(200, 150);
+}
+
+function polygon(arr, rgb) {
+  fill(rgb[0], rgb[1], rgb[2]);
+  beginShape();
+  for (let i = 0; i < arr.length; i += 2) {
+    vertex(arr[i], arr[i + 1]);
+  }
+  endShape(CLOSE);
+}
+
+function drawAppleLaptop(x, y) {
+  
+  rect1(x, y, 360, 200, "180,180,180");
+  rect1(x + 10, y + 15, 340, 170, "150,150,150"); 
+
+  
+  fill(255);
+  noStroke();
+  ellipse(x + 180, y + 100, 40, 50);
+  fill(150);
+  ellipse(x + 193, y + 90, 20, 25); // bite mark
+  fill(255);
+  ellipse(x + 172, y + 70, 15, 10); // leaf
+
+  let base = [x, y + 200, x + 360, y + 200, x + 440, y + 300, x - 80, y + 300];
+  polygon(base, [160, 160, 160]);
 }
