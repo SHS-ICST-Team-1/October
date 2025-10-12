@@ -4,16 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ICST P5.js</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Special+Gothic+Expanded+One&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.1/p5.min.js"></script>
     <script src="sketch.js"></script>
     <style>
+        .special-gothic-expanded-one-regular {
+        font-family: "Special Gothic Expanded One", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        }
+        .bebas-neue-regular {
+        font-family: "Bebas Neue", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        }
         body{
             background-color: #111;
+        }
+        #p5-container{
+            margin-left: 0px;
+        }
+        #title{
+            transition: 1s ease-in-out;
+            animation:1s movein forwards;
+        }
+        @keyframes movein {
+            0% {transform: translatex(-600px);}
+            100% {transform: translatex(0px);}
         }
     </style>
 </head>
 <body>
     <div id="p5-container"></div>
-    <h1>Why er made this</h1>
+    <h1 id="title" style="color:white;text-align:center;font-size: 4em; font-family:Special Gothic Expanded One">Why we made this</h1>
 </body>
 </html>

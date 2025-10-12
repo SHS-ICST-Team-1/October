@@ -12,17 +12,17 @@ let rect1 = (x, y, w, h, color) => {
     rect(x, y, w, h);
 }
 function setup() {
-  const cnv = createCanvas(1525, 708);
+  const cnv = createCanvas(innerWidth -25, innerHeight);
   // Attach the canvas to the container so it appears above the H1
   cnv.parent('p5-container');
 }
 function draw() {
     background(34);
-    textSize(20);
     fill(255, 255, 255);
-    text("\"Toghether we make a sigma team! - Kaushik Karthik\"", 550, height-60);
+
     textSize(50);
-    text("SHS Team #1\n      Setups", 625, height);
+    textAlign(CENTER, CENTER);
+    text("     SHS Team #1\n      Setups", 725, height);
     if (height>150&&frameCount%2==0){
         height-=num;
         num/=1.1;
@@ -41,8 +41,9 @@ function draw() {
     
     polygon(g_laptopBase, g_color);
   // Siddharth laptop (now positioned via variables)
-  drawSiddharthLaptop(sidLaptopX, sidLaptopY);
-    drawAppleLaptop(80,40)
+    drawSiddharthLaptop(sidLaptopX, sidLaptopY);
+    drawAppleLaptop(80,40);
+    drawSilverLaptop(1150, 80);
 }
 
 
@@ -121,18 +122,46 @@ function drawSiddharthLaptop(x, y) {
 
 function drawAppleLaptop(x, y) {
   
-  rect1(x, y, 360, 200, "180,180,180");
-  rect1(x + 10, y + 15, 340, 170, "150,150,150"); 
+  rect1(x, y, 360, 200, "255,201,100");
+  rect1(x + 10, y + 15, 340, 170, "10,10,10"); 
 
   
   fill(255);
   noStroke();
   ellipse(x + 180, y + 100, 40, 50);
-  fill(150);
+  fill(10);
   ellipse(x + 193, y + 90, 20, 25); // bite mark
   fill(255);
   ellipse(x + 172, y + 70, 15, 10); // leaf
 
   let base = [x, y + 200, x + 360, y + 200, x + 440, y + 300, x - 80, y + 300];
-  polygon(base, [160, 160, 160]);
+  polygon(base, [250, 150, 50]);
+}
+function drawSilverLaptop(x, y) {
+  rect1(x, y, 300, 162, "80,130,170"); 
+  rect1(x + 10, y + 10, 280, 144, "0,0,0");
+
+  let baseTop = [x, y + 162, x + 300, y + 162, x + 330, y + 234, x - 30, y + 234];
+  polygon(baseTop, [100, 150, 190]);
+
+  let baseBottom = [x - 30, y + 234, x + 330, y + 234, x + 310, y + 242, x - 10, y + 242];
+  polygon(baseBottom, [100, 140, 150]);
+
+  fill(255);
+  noStroke();
+  ellipse(x + 150, y + 81, 60, 60);
+
+  fill(0);
+  textSize(24);
+  textFont("sans-serif");
+  textAlign(CENTER, CENTER);
+  text("hp", x + 150, y + 81);
+
+  let keyTopY = y + 172;
+  let keyBottomY = y + 200;
+  let keyDepth = 6;
+  let keyWidthTop = 38;
+  let keyWidthBottom = 48;
+  let keySpacing = 20;
+  let startX = x + 66;
 }
