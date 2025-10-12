@@ -16,39 +16,41 @@ function setup() {
   // Attach the canvas to the container so it appears above the H1
   cnv.parent('p5-container');
 }
+
 function draw() {
-    background(34);
-    fill(255, 255, 255);
+  background(34);
+  textAlign(CENTER);
+  textSize(20);
+  fill(255);
+  text("\"Teamwork Makes the Dream Work - Kaushik Karthik\"", width / 2, height - 60);
+  textSize(50);
+  text("SHS Team #1\nSetups", width / 2, height);
 
-    textSize(50);
-    textAlign(CENTER, CENTER);
-    text("     SHS Team #1\n      Setups", 725, height);
-    if (height>150&&frameCount%2==0){
-        height-=num;
-        num/=1.1;
-    }
-    // MOVED WINDOWS LAPTOP DOWN 70 PIXELS
-    rect1(580, 370, 360, 200, "50,50,50"); // CHANGED: y from 300 to 370
-    rect1(590, 385, 340, 170, "20,20,20"); // CHANGED: y from 315 to 385
+  if (height > 150 && frameCount % 2 == 0) {
+    height -= num;
+    num /= 1.1;
+  }
 
-    let x=720,y=420; // CHANGED: y from 350 to 420
-    rect1(x, y, 40, 40, "0,120,212");
-    rect1(x+45, y +45, 40, 40, "0,120,212");
-    rect1(x, y +45, 40, 40, "0,120,212");
-    rect1(x+45, y, 40, 40, "0,120,212");
-    g_laptopBase = [580, 570, 940, 570, 1020, 670, 500, 670]; // CHANGED: all y coordinates increased by 70
-    polygon([1020, 670, 990,677, 530, 677, 500, 670],[45,45,45]) // CHANGED: all y coordinates increased by 70
-    
-    polygon(g_laptopBase, g_color);
-  // Siddharth laptop (now positioned via variables)
-    drawSiddharthLaptop(sidLaptopX, sidLaptopY);
-    drawAppleLaptop(80,40);
-    drawSilverLaptop(1150, 80);
-    drawReubensPC()
+  // Windows laptop
+  rect1(580, 370, 360, 200, "50,50,50");
+  rect1(590, 385, 340, 170, "20,20,20");
+
+  let x = 720, y = 420;
+  rect1(x, y, 40, 40, "0,120,212");
+  rect1(x + 45, y + 45, 40, 40, "0,120,212");
+  rect1(x, y + 45, 40, 40, "0,120,212");
+  rect1(x + 45, y, 40, 40, "0,120,212");
+
+  g_laptopBase = [580, 570, 940, 570, 1020, 670, 500, 670];
+  polygon([1020, 670, 990, 677, 530, 677, 500, 670], [45, 45, 45]);
+  polygon(g_laptopBase, g_color);
+
+  drawSiddharthLaptop(sidLaptopX, sidLaptopY);
+  drawAppleLaptop(80, 40);
+  drawSilverLaptop(1150, 80);
 }
 
-
-function polygon(arr, rgb) {// input format ([x1, y1, x2, y2, x3, y3,.. ], [r,g,b])
+function polygon(arr, rgb) {
   fill(rgb[0], rgb[1], rgb[2]);
   beginShape();
   for (let i = 0; i < arr.length; i += 2) {
@@ -57,78 +59,45 @@ function polygon(arr, rgb) {// input format ([x1, y1, x2, y2, x3, y3,.. ], [r,g,
   endShape(CLOSE);
 }
 
-function drawReubensPC(){
-  // 1525, 708
-    //rect1(100,100, 100, 100, "9,100,200"); // test rect
-
-    //rect1(1150,0, 2, 708)
-    let m = -50
-    let keybaordCol = [25, 25, 25];
-    let keyboard =[1180+m,600, 1460+m,600, 1480+m, 670, 1160+m, 670];
-    polygon(keyboard,keybaordCol);
-    let keyboardBase = [1160+m, 670, 1480+m, 670,  1450+m, 675,  1190+m, 675]
-    polygon(keyboardBase, [14,14,14]);
-    
-    let mBarCol = [127, 127, 127]
-    rect1(1160+m, 540, 320, 6, "127, 127, 127");
-    rect1(1160+m, 380, 320, 160, "6, 6, 6")
-    rect1(1165+m, 385, 310, 150, "20, 20, 20")
-    fill(2, 2, 2)
-    ellipse(1480, 620, 30, 50)
-    rect1(1240, 420, 30, 30, "0,120,212");
-    rect1(1240+35, 420 +35, 30, 30, "0,120,212");
-    rect1(1240, 420 +35, 30, 30, "0,120,212");
-    rect1(1240+35, 420,30, 30, "0,120,212");
-    
-
-}
-
 function drawSiddharthLaptop(x, y) {
-  // base screen rect
   let macx = x;
   let macy = y;
   let macw = 340;
   let mach = 200;
 
   fill(70);
-  rect(macx, macy, macw, mach); // overall
+  rect(macx, macy, macw, mach);
   fill(20);
-  rect(macx + 10, macy + 10, macw - 20, mach - 20, 5); // screen
-  fill(100);
+  rect(macx + 10, macy + 10, macw - 20, mach - 20, 5);
 
-  // base start
   beginShape();
   fill(70);
-  stroke(0, 0, 0);
-  vertex(macx, macy + mach); // tpl
-  vertex(macx + macw, macy + mach); // tpr
-  vertex(macx + macw + 60, macy + mach + 100); // btr
-  vertex(macx - 60, macy + mach + 100); // btl
-  endShape(CLOSE); // base end
-
-  // bottom of base
-  beginShape();
-  fill(70);
-  stroke(0, 0, 0);
-  vertex(macx - 60, macy + mach + 100); // tpl
-  vertex(macx + macw + 60, macy + mach + 100); // tpr
-  vertex(macx + macw + 40, macy + mach + 107); // btr
-  vertex(macx - 40, macy + mach + 107); // btl
+  stroke(0);
+  vertex(macx, macy + mach);
+  vertex(macx + macw, macy + mach);
+  vertex(macx + macw + 60, macy + mach + 100);
+  vertex(macx - 60, macy + mach + 100);
   endShape(CLOSE);
 
-  // apple logo
+  beginShape();
+  fill(70);
+  stroke(0);
+  vertex(macx - 60, macy + mach + 100);
+  vertex(macx + macw + 60, macy + mach + 100);
+  vertex(macx + macw + 40, macy + mach + 107);
+  vertex(macx - 40, macy + mach + 107);
+  endShape(CLOSE);
+
   let logox = macx + macw / 2;
   let logoy = macy + mach / 2 - 20;
 
-  push(); // begin drawing group
+  push();
   translate(logox, logoy);
   scale(1);
-
-  fill(255, 255, 255);
+  fill(255);
   noStroke();
 
   beginShape();
-  // leaf
   vertex(0, -30);
   quadraticVertex(10, -50, 25, -45);
   quadraticVertex(25, -30, 0, -30);
@@ -137,7 +106,7 @@ function drawSiddharthLaptop(x, y) {
   beginShape();
   vertex(0, -10);
   bezierVertex(20, -25, 50, -10, 60, 0);
-  bezierVertex(37, 15, 50, 38, 60, 45); // bite
+  bezierVertex(37, 15, 50, 38, 60, 45);
   bezierVertex(65, 50, 60, 60, 50, 70);
   bezierVertex(30, 90, 20, 60, -5, 70);
   bezierVertex(-30, 90, -50, 60, -52, 40);
@@ -148,33 +117,32 @@ function drawSiddharthLaptop(x, y) {
 }
 
 function drawAppleLaptop(x, y) {
-  
-  rect1(x, y, 360, 200, "255,201,100");
-  rect1(x + 10, y + 15, 340, 170, "10,10,10"); 
+  rect1(x, y, 360, 200, "180,180,180");
+  rect1(x + 10, y + 15, 340, 170, "150,150,150");
 
-  
   fill(255);
   noStroke();
   ellipse(x + 180, y + 100, 40, 50);
-  fill(10);
-  ellipse(x + 193, y + 90, 20, 25); // bite mark
+  fill(150);
+  ellipse(x + 193, y + 90, 20, 25);
   fill(255);
-  ellipse(x + 172, y + 70, 15, 10); // leaf
+  ellipse(x + 172, y + 70, 15, 10);
 
   let base = [x, y + 200, x + 360, y + 200, x + 440, y + 300, x - 80, y + 300];
-  polygon(base, [250, 150, 50]);
+  polygon(base, [160, 160, 160]);
 }
+
 function drawSilverLaptop(x, y) {
-  rect1(x, y, 300, 162, "80,130,170"); 
-  rect1(x + 10, y + 10, 280, 144, "0,0,0");
+  rect1(x, y, 300, 162, "200,200,200"); 
+  rect1(x + 10, y + 10, 280, 144, "100,100,100");
 
   let baseTop = [x, y + 162, x + 300, y + 162, x + 330, y + 234, x - 30, y + 234];
-  polygon(baseTop, [100, 150, 190]);
+  polygon(baseTop, [180, 180, 180]);
 
   let baseBottom = [x - 30, y + 234, x + 330, y + 234, x + 310, y + 242, x - 10, y + 242];
-  polygon(baseBottom, [100, 140, 150]);
+  polygon(baseBottom, [150, 150, 150]);
 
-  fill(255);
+  fill(220);
   noStroke();
   ellipse(x + 150, y + 81, 60, 60);
 
@@ -191,4 +159,30 @@ function drawSilverLaptop(x, y) {
   let keyWidthBottom = 48;
   let keySpacing = 20;
   let startX = x + 66;
+  let labels = ["C++", "Python", "JS"];
+  let labelColors = [[135, 206, 250], [255, 215, 0], [255, 165, 0]];
+
+  for (let i = 0; i < 3; i++) {
+    let topLeftX = startX + i * (keyWidthBottom + keySpacing);
+    let top = [
+      topLeftX + 5, keyTopY,
+      topLeftX + 5 + keyWidthTop, keyTopY,
+      topLeftX + keyWidthBottom, keyBottomY,
+      topLeftX, keyBottomY
+    ];
+    polygon(top, [60, 60, 60]);
+
+    let bottom = [
+      topLeftX, keyBottomY,
+      topLeftX + keyWidthBottom, keyBottomY,
+      topLeftX + keyWidthBottom, keyBottomY + keyDepth,
+      topLeftX, keyBottomY + keyDepth
+    ];
+    polygon(bottom, [40, 40, 40]);
+
+    fill(labelColors[i][0], labelColors[i][1], labelColors[i][2]);
+    textSize(14);
+    textAlign(CENTER, CENTER);
+    text(labels[i], topLeftX + keyWidthBottom / 2, keyBottomY - 10);
+  }
 }
