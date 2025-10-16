@@ -6,7 +6,7 @@
     <title>ICST P5.js</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Special+Gothic+Expanded+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Special+Gothic+Expanded+One&family=Playfair+Display:wght@400;900&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.1/p5.min.js"></script>
     <script src="sketch.js"></script>
     <style>
@@ -34,10 +34,20 @@
             0% {transform: translatex(-600px);}
             100% {transform: translatex(0px);}
         }
+        #text{
+            color:white;
+            text-align:center;
+            font-size: 1.4em; 
+            font-family: "Playfair Display", serif;
+            margin-left: 100px;
+            margin-right: 100px;
+            line-height: 1.5;
+        }
     </style>
 </head>
 <body>
     <div id="p5-container"></div>
     <h1 id="title" style="color:white;text-align:center;font-size: 4em; font-family:Special Gothic Expanded One">Why we made this</h1>
+    <h5 id="text">For our code and art challenge, our team decided to draw laptops. They represent the connection between creativity and technology and it is the foundation of modern learning and innovation. Laptops show how education and our passions link together, serving as tools that support both artistic expression and coding exploration. By illustrating them, we aimed to highlight how technology drives our curiosity, teamwork, and problem-solving in school. This project not only expressed our common interest in tech but also showed how digital tools can change imagination into creation. It bridges the gap between art and computer science in a meaningful way.</h5>
 </body>
 </html>
